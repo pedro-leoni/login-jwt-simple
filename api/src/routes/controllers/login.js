@@ -1,16 +1,28 @@
 const { User } = require("../../db");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { KEYWORD_JWT } = process.env;
 
 const login = async ( req, res ) => {
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email }});
-    const checkPassword = user === null 
-    ? false
-    : await bcrypt.compare(password, user.password)
-    if(!checkPassword){
-        res.status(400).json({msg: 'Invalid password or username'})
+    try{
+        const user = await User.findOne({ where: { email }});
+        const checkPassword = user === null 
+        ? false
+        : await bcrypt.compare(password, user.password)
+        if(!(user && checkPassword)){
+            return res.status(400).json({msg: 'Invalid password or username'})
+        }
+        const userForToken = {
+            id: user.id,
+            username: user.username
+        }
+        const token = jwt.sign(userForToken, KEYWORD_JWT)
+        return res.status(200).json({ username: user.username, token })
+    } catch(err){
+        console.log(err)
+        return res.status(401).send({msg: 'Error'})
     }
-    res.status(200).json({ username: user.username })
 }
 
 module.exports = login;
