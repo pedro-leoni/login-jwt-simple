@@ -20,13 +20,12 @@ const CreateAccount = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values)
     await createAccount(values)
   };
   return (
     <form onSubmit={handleSubmit}>
       <input
-        type="text"
+        type="email"
         placeholder="Email"
         id="email"
         name="email"

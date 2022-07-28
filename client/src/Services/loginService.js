@@ -1,14 +1,15 @@
 import axios from 'axios';
 
-const url = '/user';
+const url = '/login';
 
-const createAccount = async payload => {
+const login = async payload => {
     try {
         const resp = await axios.post(url, payload)
-        return resp
+        return resp.data.token
     } catch(err){
         console.log(`Ocurrio un error : ${err}`)
+        return err
     }
 }
 
-export default createAccount
+export default login;

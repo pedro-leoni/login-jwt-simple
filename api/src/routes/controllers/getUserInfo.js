@@ -10,7 +10,8 @@ const getUserInfo = async (req,res) => {
             name: findUser.name,
             lastname: findUser.lastname,
             phone: findUser.phone,
-            createdAt: findUser.createdAt
+            createdAt: findUser.createdAt,
+            image: findUser.image
         }
         res.status(200).json({user})
     } catch(err) {
