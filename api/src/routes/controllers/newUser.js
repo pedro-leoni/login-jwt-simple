@@ -7,7 +7,7 @@ const newUser = async (req, res) => {
     let hashPassword = bcrypt.hashSync(password, 10)
     const emailFound = await User.findOne({ where: { email }});
     if(emailFound) {
-      return res.status(400).json({error: 'ya existe una cuenta con este correo'})
+      return res.status(400).json({error: 'Email already exist'})
     }
 
     const newUser = await User.create({
@@ -19,10 +19,9 @@ const newUser = async (req, res) => {
       phone,
     });
 
-    res.status(200).json({ msg: `Usuario ${newUser.dataValues.id} creado exitosamente`});
+    res.status(200).json({ msg: `User ${newUser.dataValues.id} created succesfully`});
   } catch (err) {
-    console.log(err);
-    res.sendStatus(404);
+    res.status(404).json({msg: 'The user is not created, try again'});
   }
 };
 

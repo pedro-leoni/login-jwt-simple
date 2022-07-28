@@ -15,10 +15,9 @@ const login = async ( req, res ) => {
         }
         const userForToken = {
             id: user.id,
-            username: user.username
         }
         const token = jwt.sign(userForToken, KEYWORD_JWT)
-        return res.status(200).json({ username: user.username, token })
+        return res.status(200).json({ token })
     } catch(err){
         console.log(err)
         return res.status(401).send({msg: 'Error'})
