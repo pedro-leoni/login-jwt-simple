@@ -2,7 +2,7 @@ const { User } = require("../../db");
 const bcrypt = require("bcrypt");
 
 const newUser = async (req, res) => {
-  const { username, email, password, name, lastname, phone } = req.body;
+  const { username, email, password, name, lastname, phone, image } = req.body;
   try {
     let hashPassword = bcrypt.hashSync(password, 10)
     const emailFound = await User.findOne({ where: { email }});
@@ -17,6 +17,7 @@ const newUser = async (req, res) => {
       name,
       lastname,
       phone,
+      image
     });
 
     res.status(200).json({ msg: `User ${newUser.dataValues.id} created succesfully`});
