@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import login from "../../Services/loginService";
 import getUserId from "../../Services/getUserId";
+import Swal from "sweetalert2";
+
 
 const Login = () => {
   const navigate = useNavigate()
@@ -25,9 +27,22 @@ const Login = () => {
       window.localStorage.setItem("token",response)
       const token = localStorage.getItem("token")
       const id = await getUserId(token);
+      Swal.fire({
+        background: "#DFDCD3",
+        icon: "success",
+        title: "Success",
+        showConfirmButton: false,
+        timer: 1000
+      })
       navigate(`/user/${id}`)
+  
     } else {
-      console.log('error en inicio de sesion')
+      Swal.fire({
+        background: "#DFDCD3",
+        confirmButtonColor: "#B6893E",
+        icon: "error",
+        title: "Incorrect email or password",
+      })
     }
   };
 
@@ -51,7 +66,7 @@ const Login = () => {
         Login
       </button>
       <Link to='/createaccount'>
-        Haven't account? Create, it's free
+        Haven't account? Create one, it's free
       </Link>
     </form>
   );

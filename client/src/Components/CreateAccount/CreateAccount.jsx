@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import createAccount from "../../Services/createAccountService"
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import createAccount from "../../Services/createAccountService";
+
 
 const CreateAccount = () => {
+  const navigate = useNavigate()
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -20,7 +24,22 @@ const CreateAccount = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createAccount(values)
+    const resp = await createAccount(values)
+    if(resp !== undefined){
+      Swal.fire({
+        background: "#DFDCD3",
+        icon: "success",
+        title: "User created",
+      })
+      navigate('/')
+    } else {
+      Swal.fire({
+        background: "#DFDCD3",
+        confirmButtonColor: "#B6893E",
+        icon: "error",
+        title: "A problem has occurred, please try again",
+      })
+    }
   };
   return (
     <form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import getUserInfo from "../../Services/getUserInfo";
 
 
@@ -15,8 +16,15 @@ const Profile = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     //agregar confirmacion con swal
-    window.localStorage.removeItem("token")
-    navigate('/')
+    Swal.fire({
+      background: "#DFDCD3",
+      icon: "question",
+      title: "Are you sure?",
+      showCancelButton: true,
+    }).then(()=>{
+      window.localStorage.removeItem("token")
+      navigate('/')
+    })
   }
 
   return (
