@@ -16,7 +16,7 @@ const Profile = () => {
     e.preventDefault();
     //agregar confirmacion con swal
     window.localStorage.removeItem("token")
-    navigate('/login')
+    navigate('/')
   }
 
   return (

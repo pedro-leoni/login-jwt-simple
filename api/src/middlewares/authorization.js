@@ -22,14 +22,14 @@ const verifyToken = async ( req, res, next ) => {
                     return res.status(401).json({ msg: "Token not found"})
                 }
             } catch(err){
-                console.log(err)
+                console.log('Error en verifyToken')
                 return res.sendStatus(404)
             }
         } else {
             res.status(401).json({msg: "Invalid Header"})
         }
     } catch(err){
-        console.log(err)
+        console.log('Error en verifyToken')
         res.status(404).json({msg: 'Server error'})
     }
 }
