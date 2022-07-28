@@ -3,10 +3,10 @@ const { Router } = require('express');
 const newUser = require('./controllers/newUser');
 const ping = require('./controllers/ping');
 const login = require('./controllers/login');
-const verifyToken = require("../middlewares/authorization")
 const getUserInfo = require('./controllers/getUserInfo');
-//middlewares
 const getUserId = require('./controllers/getUserId')
+//middlewares
+const verifyToken = require("../middlewares/authorization")
 const cors = require("cors")
 
 const router = Router();
