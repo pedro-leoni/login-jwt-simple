@@ -9,7 +9,6 @@ const ProtectedRoutes = ({children }) => {
     apiAuth(token).then((res)=>setAuth(res))
     setLoading(false)
   },[auth, token])
-  console.log('loading -> ', loading, 'auth -> ', auth)
   if(auth){
     return children;
   } else {

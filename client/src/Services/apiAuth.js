@@ -8,7 +8,6 @@ const apiAuth = async payload => {
     }
     try {
         const resp = await axios.get(url, config)
-        console.log('resp del back -> ', resp)
         if(resp.data.userid){
             return true
         } else {
