@@ -3,24 +3,41 @@
     flex-direction: column;
     align-items: center;
     width: 40vw;
-    border: 1px solid black;
-    margin-left: 30vw;
+    border: 1px solid rgba(121, 121, 121, 0.596);
+    border-radius: 5px;
     margin-top: 5vh;
+    box-shadow: 11px 17px 40px -2px rgba(64,64,64,0.81)
 }
 
-.header{
+.content{
     display: flex;
-    align-items: center;
-    
+    align-items: center;   
+    width: auto;
 }
 
 .image{
-    border-radius: 100%;
+    border-radius: 50% 50% 52% 48% / 30% 30% 70% 70% ;
     width: 100px;
     height: 100px;
     padding-left: 5%;
+    margin-right: 5%;
+}
+
+.infoContainer{
+    width: 10vw;
 }
 
 .logoutButton{
+    height: 2.5vh;
     margin: 2vh;
+    border: 1px solid rgba(121, 121, 121, 0.596);
+    border-radius: 2px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.logoutButton:hover{
+    background-color: rgba(0, 255, 255, 0.237);
+    cursor: pointer;
+    border: 1px solid rgba(125, 186, 186, 0.596);
+    border-radius: 2px;
+    box-shadow: 14px 17px 48px -11px rgba(51, 62, 63, 0.89);
 }

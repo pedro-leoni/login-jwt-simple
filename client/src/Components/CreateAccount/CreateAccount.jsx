@@ -106,31 +106,32 @@ const CreateAccount = () => {
         const resp = await createAccount(values);
         if (resp !== undefined) {
           Swal.fire({
-            background: "#DFDCD3",
+            background: "#d2fff3",
             icon: "success",
             title: "User created, now login",
+            confirmButtonColor: '#3B3B3B',
           });
           navigate("/");
         } else {
           Swal.fire({
-            background: "#DFDCD3",
-            confirmButtonColor: "#B6893E",
+            background: "#d2fff3",
+            confirmButtonColor: '#3B3B3B',
             icon: "error",
             title: "Email already exist",
           });
         }
       } else {
         Swal.fire({
-          background: "#DFDCD3",
-          confirmButtonColor: "#B6893E",
+          background: "#d2fff3",
+          confirmButtonColor: '#3B3B3B',
           icon: "error",
           title: "Fields cannot be empty",
         })
       }
     } else {
       Swal.fire({
-        background: "#DFDCD3",
-        confirmButtonColor: "#B6893E",
+        background: "#d2fff3",
+        confirmButtonColor: '#3B3B3B',
         icon: "error",
         title: "Check errors",
       })

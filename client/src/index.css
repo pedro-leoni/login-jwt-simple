@@ -1,0 +1,11 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background: rgb(210,255,243);
+    background: linear-gradient(90deg, rgba(210,255,243,1) 0%, rgba(210,255,243,0.7875525210084033) 100%);
+    font-family: 'Ubuntu', sans-serif;
+}

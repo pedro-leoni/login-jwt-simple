@@ -2,10 +2,11 @@
     display: flex;
     flex-direction: column;
     width: 30vw;
-    border: 1px solid black;
+    border: 1px solid rgba(121, 121, 121, 0.596);
+    border-radius: 5px;
     padding: 5px;
-    margin-left: 36vw;
     margin-top: 5vh;
+    box-shadow: 11px 17px 40px -2px rgba(64,64,64,0.81)
 }
 
 .normalInput{
@@ -13,13 +14,27 @@
     height: 2.5vh;
     width: 20vw;
     align-self: center;
+    border: 1px solid rgba(121, 121, 121, 0.596);
+    border-radius: 5px;
 }
 
 .submitButton{
     width: 30%;
     align-self: center;
+    height: 2.5vh;
     margin-top: 15px;
     margin-bottom: 15px;
+    border: 1px solid rgba(121, 121, 121, 0.596);
+    border-radius: 2px;
+    background-color: rgba(133, 255, 226, 0.658);
+    font-family: 'Ubuntu', sans-serif;
+}
+.submitButton:hover{
+    background-color: rgba(0, 255, 255, 0.237);
+    cursor: pointer;
+    border: 1px solid rgba(125, 186, 186, 0.596);
+    border-radius: 2px;
+    box-shadow: 14px 17px 48px -11px rgba(51, 62, 63, 0.89);
 }
 
 .title{

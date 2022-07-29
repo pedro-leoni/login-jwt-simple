@@ -52,7 +52,7 @@ const Login = () => {
           const token = localStorage.getItem("token")
           const id = await getUserId(token);
           Swal.fire({
-            background: "#DFDCD3",
+            background: "#d2fff3",
             icon: "success",
             title: "Success",
             showConfirmButton: false,
@@ -61,24 +61,23 @@ const Login = () => {
           navigate(`/user/${id}`)
         } else {
           Swal.fire({
-            background: "#DFDCD3",
-            confirmButtonColor: "#B6893E",
+            background: "#d2fff3",
+            confirmButtonColor: '#3B3B3B',
             icon: "error",
             title: "Incorrect email or password",
           })
         }
       } else {
         Swal.fire({
-          background: "#DFDCD3",
-          confirmButtonColor: "#B6893E",
+          background: "#d2fff3",
+          confirmButtonColor: '#3B3B3B',
           icon: "error",
           title: "Fields cannot be empty or contain more than 32 characters",
         })
       }
     } else {
       Swal.fire({
-        background: "#DFDCD3",
-        confirmButtonColor: "#B6893E",
+        background: "#d2fff3",
         icon: "error",
         title: "Error: Fields cannot be empty ",
       })
@@ -108,14 +107,15 @@ const Login = () => {
           onChange={handleChange}
           className={styles.normalInput}
         />
-      
-        <Link  to='/createaccount' className={styles.textLink}>
-            Haven't account? Create one, it's free
-        </Link>
-  
-        <button type="submit" className={styles.submitButton}>
-          Login
-        </button>
+        <div className={styles.buttonsContainer}>
+          <Link  to='/createaccount' className={styles.textLink}>
+              Haven't account? Create one, it's free
+          </Link>
+    
+          <button type="submit" className={styles.submitButton}>
+            Login
+          </button>
+        </div>
         
       </form>
     

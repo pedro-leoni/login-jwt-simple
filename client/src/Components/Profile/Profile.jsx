@@ -17,13 +17,16 @@ const Profile = () => {
     e.preventDefault();
     //agregar confirmacion con swal
     Swal.fire({
-      background: "#DFDCD3",
+      background: "#d2fff3",
+      confirmButtonColor: '#3B3B3B',
       icon: "question",
       title: "Are you sure?",
       showCancelButton: true,
-    }).then(() => {
-      window.localStorage.removeItem("token");
-      navigate("/");
+    }).then((result) => {
+      if(result.isConfirmed){
+        window.localStorage.removeItem("token");
+        navigate("/");
+      } 
     });
   };
 
@@ -31,8 +34,8 @@ const Profile = () => {
     
       <div className={styles.container}>
         <h1 className={styles.title}>Welcome {info?.username}</h1>
-        <div className={styles.header}>
-          <img className={styles.image} src={info?.image} alt="profile" />
+        <div className={styles.content}>
+          <img className={styles.image} src={info?.image} alt="not profile img" />
           <ul className={styles.infoContainer}>
             <li className={styles.info}>Firstname: {info?.name}</li>
             <li className={styles.info}>Lastname: {info?.lastname}</li>

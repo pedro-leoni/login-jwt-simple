@@ -14,7 +14,9 @@ axios.defaults.baseURL = REACT_APP_BASE_URL;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <div className="app">
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </div>
 );
