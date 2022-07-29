@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import NotAllowed from './Components/NotAllowed/NotAllowed';
 import apiAuth from './Services/apiAuth';
 
 const ProtectedRoutes = ({children }) => {
@@ -11,8 +12,10 @@ const ProtectedRoutes = ({children }) => {
   },[auth, token])
   if(auth){
     return children;
+  } else if(loading){
+    return <p>Loading...</p>
   } else {
-    return <p>Cargando</p>
-  } 
+    return <NotAllowed/>
+  }
 }
 export default ProtectedRoutes

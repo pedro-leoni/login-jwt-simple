@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import login from "../../Services/loginService";
 import getUserId from "../../Services/getUserId";
 import Swal from "sweetalert2";
+import styles from './styles/Login.module.css';
 
 const validate = (values) => {
   let errors = {}; 
@@ -88,28 +89,38 @@ const Login = () => {
 
   console.log('errors => ', errors)
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
-      <button type="submit">
-        Login
-      </button>
-      <Link to='/createaccount'>
-        Haven't account? Create one, it's free
-      </Link>
-    </form>
+    
+      <form onSubmit={handleSubmit} className={styles.container}>
+        <h3 className={styles.title}>
+          Login
+        </h3>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          className={styles.normalInput}
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          className={styles.normalInput}
+        />
+      
+        <Link  to='/createaccount' className={styles.textLink}>
+            Haven't account? Create one, it's free
+        </Link>
+  
+        <button type="submit" className={styles.submitButton}>
+          Login
+        </button>
+        
+      </form>
+    
   );
 };
 

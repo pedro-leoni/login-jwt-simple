@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    border: 1px solid black;
+    margin-left: 30vw;
+    margin-top: 5vh;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    
+}
+
+.image{
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    padding-left: 5%;
+}
+
+.logoutButton{
+    margin: 2vh;
+}

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import getUserInfo from "../../Services/getUserInfo";
-
+import styles from "./styles/Profile.module.css";
 
 const Profile = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [info, setInfo] = useState();
   const token = localStorage.getItem("token");
-  const {id } = useParams()
+  const { id } = useParams();
   useEffect(() => {
     getUserInfo(token, id).then((resp) => setInfo(resp));
   }, []);
@@ -21,32 +21,33 @@ const Profile = () => {
       icon: "question",
       title: "Are you sure?",
       showCancelButton: true,
-    }).then(()=>{
-      window.localStorage.removeItem("token")
-      navigate('/')
-    })
-  }
+    }).then(() => {
+      window.localStorage.removeItem("token");
+      navigate("/");
+    });
+  };
 
   return (
-    <div>
-      <div>
-        <h1>Welcome {info?.username}</h1>
-        <img src={info?.image} alt='profile'/>
-      </div>
-      <div>
-        <h2>Info</h2>
-        <table>
-          <ul>
-            <li>Firstname: {info?.name}</li>
-            <li>Lastname: {info?.lastname}</li>
-            <li>Email: {info?.email}</li>
-            <li>Phone: {info?.phone}</li>
+    
+      <div className={styles.container}>
+        <h1 className={styles.title}>Welcome {info?.username}</h1>
+        <div className={styles.header}>
+          <img className={styles.image} src={info?.image} alt="profile" />
+          <ul className={styles.infoContainer}>
+            <li className={styles.info}>Firstname: {info?.name}</li>
+            <li className={styles.info}>Lastname: {info?.lastname}</li>
+            <li className={styles.info}>Email: {info?.email}</li>
+            <li className={styles.info}>Phone: {info?.phone}</li>
           </ul>
-        </table>
-        <button onClick={handleLogout}> Logout </button>
+        </div>
+        <div>
+          <button onClick={handleLogout} className={styles.logoutButton}>
+            {" "}
+            Logout{" "}
+          </button>
+        </div>
       </div>
-
-    </div>
+    
   );
 };
 

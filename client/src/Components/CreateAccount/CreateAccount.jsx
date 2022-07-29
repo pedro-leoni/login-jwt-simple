@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import createAccount from "../../Services/createAccountService";
+import styles from './styles/CreateAccount.module.css';
 
 const validate = (values, validatePassword) => {
   let errors = {};
@@ -91,6 +92,7 @@ const CreateAccount = () => {
     phone: "",
     image: "",
   });
+
   const [errors, setErrors] = useState({})
 
   const handleChange = (e) => {
@@ -103,6 +105,8 @@ const CreateAccount = () => {
       [e.target.name]: e.target.value,
     }))
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -143,72 +147,105 @@ const CreateAccount = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="Email"
-        id="email"
-        name="email"
-        value={values.email}
-        onChange={handleChange}
-       
-      />
-      <input
-        type="text"
-        placeholder="Username"
-        id="username"
-        name="username"
-        value={values.username}
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        id="password"
-        name="password"
-        value={values.password}
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        placeholder="Repeat Password"
-        id="rpassword"
-        name="rpassword"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Firstname"
-        id="name"
-        name="name"
-        value={values.name}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Lastname"
-        id="lastname"
-        name="lastname"
-        value={values.lastname}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Phone"
-        id="phone"
-        name="phone"
-        value={values.phone}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Url Profile Image"
-        id="image"
-        name="image"
-        value={values.image}
-        onChange={handleChange}
-      />
-      <button type="submit"> Create Account </button>
+    <form onSubmit={handleSubmit} className={styles.container}>
+        <h3 className={styles.title}>
+          Create account
+        </h3>
+
+        <input
+          type="email"
+          placeholder="Email"
+          id="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          className={styles.normalInput}
+          
+        />
+        {errors.email && (<p className={styles.danger}>{errors.email}</p>)}
+        <input
+          type="text"
+          placeholder="Username"
+          id="username"
+          name="username"
+          value={values.username}
+          onChange={handleChange}
+          className={styles.normalInput}
+          
+        />
+        {errors.username && (<p className={styles.danger}>{errors.username}</p>)}
+        
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            className={styles.normalInput}
+            
+          />
+          {errors.password && (<p className={styles.danger}>{errors.password}</p>)}
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            id="rpassword"
+            name="rpassword"
+            onChange={handleChange}
+            className={styles.normalInput}
+            
+          />
+     
+        {errors.password && (<p className={styles.danger}>{errors.password}</p>)}
+        
+          <input
+            type="text"
+            placeholder="Firstname"
+            id="name"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+            className={styles.normalInput}
+            
+          />
+          {errors.name && (<p className={styles.danger}>{errors.name}</p>)}
+          <input
+            type="text"
+            placeholder="Lastname"
+            id="lastname"
+            name="lastname"
+            value={values.lastname}
+            onChange={handleChange}
+            className={styles.normalInput}
+            
+          />
+          {errors.lastname && (<p className={styles.danger}>{errors.lastname}</p>)}
+        <input
+          type="text"
+          placeholder="Phone"
+          id="phone"
+          name="phone"
+          value={values.phone}
+          onChange={handleChange}
+          className={styles.normalInput}
+          
+        />
+        {errors.phone && (<p className={styles.danger}>{errors.phone}</p>)}
+        <input
+          type="text"
+          placeholder="Url Profile Image"
+          id="image"
+          name="image"
+          value={values.image}
+          onChange={handleChange}
+          className={styles.normalInput}
+          
+        />
+        {errors.image && (<p className={styles.danger}>{errors.image}</p>)}
+      <div className={styles.buttonsContainer}>
+        <Link to='/' className={styles.textLink}>Go Back</Link>
+        <button type="submit" className={styles.submitButton}> Create Account </button>
+      </div>
     </form>
   );
 };

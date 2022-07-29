@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 27vw;
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 36vw;
+    margin-top: 5vh;
+}
+
+.normalInput{
+    margin: 10px;
+    height: 2.5vh;
+    width: 20vw;
+    align-self: center;
+}
+
+.submitButton{
+    width: 30%;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.title{
+    align-self: center;
+}
+
+.textLink{
+    align-self: center;
+    color: blue;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
