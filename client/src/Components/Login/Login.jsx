@@ -16,9 +16,7 @@ const validate = (values) => {
     if(values.password.length > 32){
       errors.password = 'This field cannot contain more than 32 characters'
     }
-  } else {
-    errors.password = 'This field is required'
-  }
+  } 
 
   return errors
 }
@@ -74,7 +72,7 @@ const Login = () => {
           background: "#DFDCD3",
           confirmButtonColor: "#B6893E",
           icon: "error",
-          title: "Email cannot be empty",
+          title: "Fields cannot be empty or contain more than 32 characters",
         })
       }
     } else {
@@ -82,7 +80,7 @@ const Login = () => {
         background: "#DFDCD3",
         confirmButtonColor: "#B6893E",
         icon: "error",
-        title: "Check errors",
+        title: "Error: Fields cannot be empty ",
       })
     }
   };
