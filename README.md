@@ -8,7 +8,7 @@ Consiste en realizar una interfaz de login. Esta realizdo en Javascript, NodeJs 
 Backend creado con NodeJs y Express, se utilizo Sequelize como ORM y PostgreSQL como database. Tambien se hizo uso de bcrypt para encriptar contraseñas y JWT para hacer uso de la autenticación.
 
 ## Frontend
-Frontend creado con Create React App, utilizando javascript. Se hizo uso de libreria SweetAlert2 para las alertas, Axios para las llamadas a la API-
+Frontend creado con Create React App, utilizando javascript. Se hizo uso de libreria SweetAlert2 para las alertas, Axios para las llamadas a la API. Almacenamiento de sesion en local storage.
 
 ## Links
 [Deploy del proyecto](https://neuron-challenge.vercel.app/)
