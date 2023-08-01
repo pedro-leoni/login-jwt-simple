@@ -1,11 +1,11 @@
 # Neuron Challenge
-Challenge realizado en el marco de la prueba tecnica para la empresa [Neuron Health](https://www.linkedin.com/company/fuve/).
+Challenge realizado en el marco de la prueba tecnica para la empresa [Neuron Health](https://www.neuron.health).
 
 Consiste en realizar una interfaz de login. Esta realizdo en Javascript, NodeJs en backend y React para el frontend.
 
 ## Back End && Database
 
-Backend creado con NodeJs y Express, se utilizo Sequelize como ORM y PostgreSQL como database. Tambien se hizo uso de bcrypt para encriptar contraseñas y JWT para hacer uso de la autenticación.
+Backend creado con NodeJs y Express, se utilizo Sequelize como ORM y PostgreSQL como database, bcrypt para encriptar contraseñas y JWT para hacer la autenticación.
 
 ## Frontend
 Frontend creado con Create React App, utilizando javascript. Se hizo uso de libreria SweetAlert2 para las alertas, Axios para las llamadas a la API. Almacenamiento de sesion en local storage.
